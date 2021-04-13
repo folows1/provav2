@@ -34,28 +34,24 @@ public class App {
         for (int j = 0; j < 10; j++) {
             for (int w = 0; w < 5; w++) {
                 Competidor c = competidores.get(w);
-                Veiculo v = c.getVeiculo();
-                v.acelerar(random.nextInt((20 - 5) + 1) + 5);
+                c.getVeiculo().acelerar(random.nextInt((20 - 5) + 1) + 5);
             }
         }
         l.close();
         Competidor comp = competidores.get(0);
-        Veiculo veic = comp.getVeiculo();
-        int maior = veic.getVelocidadeAtual();
+        int maior = comp.getVeiculo().getVelocidadeAtual();
         int indice = 0;
         for (int z = 1; z < 5; z++) {
             Competidor c = competidores.get(z);
-            Veiculo v = c.getVeiculo();
-            if (maior < v.getVelocidadeAtual()) {
-                maior = v.getVelocidadeAtual();
+            if (maior < c.getVeiculo().getVelocidadeAtual()) {
+                maior = c.getVeiculo().getVelocidadeAtual();
                 indice = z;
             }
         }
 
         for (int x = 0; x < 5; x++) {
             Competidor c = competidores.get(x);
-            Veiculo v = c.getVeiculo();
-            System.out.println(v.getVelocidadeAtual());
+            System.out.println(c.getVeiculo().getVelocidadeAtual());
         }
         Competidor campeao = competidores.get(indice);
         System.out.println("Competidor mais rápido: " + campeao.getApelido());
