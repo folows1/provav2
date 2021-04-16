@@ -1,11 +1,8 @@
 package br.edu.univas.main;
-
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
 import br.edu.univas.vo.*;
-
 public class App {
     public static void main(String[] args) throws Exception {
         Scanner l = new Scanner(System.in);
@@ -33,28 +30,23 @@ public class App {
         }
         for (int j = 0; j < 10; j++) {
             for (int w = 0; w < 5; w++) {
-                Competidor c = competidores.get(w);
-                c.getVeiculo().acelerar(random.nextInt((20 - 5) + 1) + 5);
+                competidores.get(w).getVeiculo().acelerar(random.nextInt((20 - 5) + 1) + 5);
             }
         }
         l.close();
-        Competidor comp = competidores.get(0);
-        int maior = comp.getVeiculo().getVelocidadeAtual();
+        int maior = competidores.get(0).getVeiculo().getVelocidadeAtual();
         int indice = 0;
         for (int z = 1; z < 5; z++) {
-            Competidor c = competidores.get(z);
-            if (maior < c.getVeiculo().getVelocidadeAtual()) {
-                maior = c.getVeiculo().getVelocidadeAtual();
+            if (maior < competidores.get(z).getVeiculo().getVelocidadeAtual()) {
+                maior = competidores.get(z).getVeiculo().getVelocidadeAtual();
                 indice = z;
             }
         }
 
         for (int x = 0; x < 5; x++) {
-            Competidor c = competidores.get(x);
-            System.out.println(c.getVeiculo().getVelocidadeAtual());
+            System.out.println(competidores.get(x).getVeiculo().getVelocidadeAtual());
         }
-        Competidor campeao = competidores.get(indice);
-        System.out.println("Competidor mais rápido: " + campeao.getApelido());
+        System.out.println("Competidor mais rápido: " + competidores.get(indice).getApelido());
         System.out.println("Velocidade: " + maior);
 
     }
